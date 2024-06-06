@@ -23,6 +23,7 @@ import com.mbm.alimentosprocesados.databinding.FragmentMonthlyReportForDiscarded
 import com.mbm.alimentosprocesados.viewmodels.MonthlyReportForDiscardedProcessedFoodPackagesWithOctagonsByBrandUiState
 import com.mbm.alimentosprocesados.viewmodels.MonthlyReportForDiscardedProcessedFoodPackagesWithOctagonsByBrandViewModel
 import kotlinx.coroutines.launch
+import java.time.LocalDate
 
 class MonthlyReportForDiscardedProcessedFoodPackagesWithOctagonsByBrandFragment : Fragment() {
     private var _binding: FragmentMonthlyReportForDiscardedProcessedFoodPackagesWithOctagonsByBrandBinding? =
@@ -49,6 +50,10 @@ class MonthlyReportForDiscardedProcessedFoodPackagesWithOctagonsByBrandFragment 
         val simplifiedProcessedFoodPackagingReportAdapter =
             SimplifiedProcessedFoodPackagingReportAdapter()
         binding.recyclerViewBrand.adapter = simplifiedProcessedFoodPackagingReportAdapter
+        binding.editTextYear.setText(LocalDate.now().year.toString())
+        val monthsArray = resources.getStringArray(R.array.months_array)
+        val actualMonth = monthsArray[LocalDate.now().month.value - 1]
+        binding.spinnerMonth.setText(actualMonth, false)
         observeUiState(simplifiedProcessedFoodPackagingReportAdapter)
         setupSearchButton()
     }
@@ -75,6 +80,7 @@ class MonthlyReportForDiscardedProcessedFoodPackagesWithOctagonsByBrandFragment 
         binding.apply {
             recyclerViewBrand.visibility = View.INVISIBLE
             titleReport.visibility = View.INVISIBLE
+            txtNumPackaging.visibility = View.INVISIBLE
             failureImage.visibility = View.GONE
             noDataImage.visibility = View.GONE
             progressCircular.visibility = View.VISIBLE
@@ -95,6 +101,9 @@ class MonthlyReportForDiscardedProcessedFoodPackagesWithOctagonsByBrandFragment 
             noDataImage.visibility = View.GONE
             recyclerViewBrand.visibility = View.VISIBLE
             titleReport.visibility = View.VISIBLE
+            txtNumPackaging.visibility = View.VISIBLE
+            txtNumPackaging.text =
+                getString(R.string.num_packaging, uiState.numPackaging.toString())
         }
         adapter.submitList(uiState.reports)
         Log.d(
@@ -107,6 +116,7 @@ class MonthlyReportForDiscardedProcessedFoodPackagesWithOctagonsByBrandFragment 
         binding.apply {
             recyclerViewBrand.visibility = View.INVISIBLE
             titleReport.visibility = View.INVISIBLE
+            txtNumPackaging.visibility = View.INVISIBLE
             progressCircular.visibility = View.GONE
             noDataImage.visibility = View.GONE
             failureImage.visibility = View.VISIBLE
@@ -122,6 +132,7 @@ class MonthlyReportForDiscardedProcessedFoodPackagesWithOctagonsByBrandFragment 
         binding.apply {
             titleReport.visibility = View.INVISIBLE
             recyclerViewBrand.visibility = View.INVISIBLE
+            txtNumPackaging.visibility = View.INVISIBLE
             progressCircular.visibility = View.GONE
             failureImage.visibility = View.GONE
             noDataImage.visibility = View.VISIBLE

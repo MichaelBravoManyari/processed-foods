@@ -117,11 +117,21 @@
             android:layout_marginTop="20dp"
             android:layout_marginBottom="10dp"
             android:visibility="invisible"
-            app:layout_constraintBottom_toTopOf="@id/txt_alto_grasas_saturadas"
+            app:layout_constraintBottom_toTopOf="@id/txt_num_packaging"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/title_report"
             tools:visibility="visible" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/txt_num_packaging"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            app:layout_constraintBottom_toTopOf="@id/txt_alto_grasas_saturadas"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/bar_chart"
+            tools:text="Número de empaques analizados: 500" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/color_alto_grasas_saturadas"
@@ -145,8 +155,8 @@
             android:visibility="invisible"
             app:layout_constraintBottom_toTopOf="@id/txt_contiene_grasas_trans"
             app:layout_constraintStart_toEndOf="@id/color_alto_grasas_saturadas"
-            app:layout_constraintTop_toBottomOf="@id/bar_chart"
-            tools:text="Alto en grasas saturadas: 10%"
+            app:layout_constraintTop_toBottomOf="@id/txt_num_packaging"
+            tools:text="Nivel promedio de grasas saturadas: 10%"
             tools:visibility="visible" />
 
         <com.google.android.material.textview.MaterialTextView
@@ -172,7 +182,7 @@
             app:layout_constraintBottom_toTopOf="@id/txt_alto_azucar"
             app:layout_constraintStart_toEndOf="@id/color_alto_grasas_trans"
             app:layout_constraintTop_toBottomOf="@id/txt_alto_grasas_saturadas"
-            tools:text="Contiene grasas trans: 15%"
+            tools:text="Nivel promedio de grasas trans: 15%"
             tools:visibility="visible" />
 
         <com.google.android.material.textview.MaterialTextView
@@ -197,7 +207,7 @@
             android:visibility="invisible"
             app:layout_constraintBottom_toTopOf="@id/txt_alto_sodio"
             app:layout_constraintStart_toEndOf="@id/color_alto_azucar"
-            tools:text="Alto en azúcar: 20%"
+            tools:text="Nivel promedio de azúcar: 20%"
             tools:visibility="visible" />
 
         <com.google.android.material.textview.MaterialTextView
@@ -221,7 +231,7 @@
             android:visibility="invisible"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@id/color_alto_sodio"
-            tools:text="Alto en sodio: 30%"
+            tools:text="Nivel promedio de sodio: 30%"
             tools:visibility="visible" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 

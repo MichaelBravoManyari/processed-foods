@@ -54,7 +54,8 @@ class MonthlyFoodOctagonsReportViewModel : ViewModel() {
                             percentageOfPackagesHighInSaturatedFats = highSaturatedFatsPercentage,
                             percentageOfPackagesHighInTransFats = highTransFatsPercentage,
                             percentageOfPackagesHighInSugar = highSugarPercentage,
-                            percentageOfPackagesHighInSodium = highSodiumPercentage
+                            percentageOfPackagesHighInSodium = highSodiumPercentage,
+                            numPackaging = totalReports
                         )
                     }
                 }
@@ -79,7 +80,8 @@ sealed interface MonthlyFoodOctagonsReportUiState {
         val percentageOfPackagesHighInSaturatedFats: Int,
         val percentageOfPackagesHighInTransFats: Int,
         val percentageOfPackagesHighInSugar: Int,
-        val percentageOfPackagesHighInSodium: Int
+        val percentageOfPackagesHighInSodium: Int,
+        val numPackaging: Int
     ) : MonthlyFoodOctagonsReportUiState
 
     data object Failure : MonthlyFoodOctagonsReportUiState

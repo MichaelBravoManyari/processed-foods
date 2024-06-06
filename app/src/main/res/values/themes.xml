@@ -6,9 +6,10 @@
         <item name="colorOnPrimary">@color/colorOnPrimary</item>
         <item name="colorSurface">@color/surfaceColor</item>
         <item name="colorOnSurface">@color/onSurfaceColor</item>
-        <item name="android:statusBarColor">?attr/colorPrimary</item>
+        <item name="android:statusBarColor">?attr/colorOnPrimary</item>
         <item name="android:windowLightStatusBar">true</item>
         <item name="colorError">@color/errorColor</item>
+        <item name="android:colorBackground">@color/colorOnPrimary</item>
         <item name="textAppearanceTitleMedium">@style/TextAppearance.App.TitleMedium</item>
         <item name="textAppearanceBodySmall">@style/TextAppearance.App.BodySmall</item>
         <item name="textAppearanceLabelLarge">@style/TextAppearance.App.Button</item>

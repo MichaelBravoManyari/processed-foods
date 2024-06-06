@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="130dp"
+    android:layout_height="150dp"
     android:layout_margin="10dp"
     android:background="@drawable/rounded_background"
     android:padding="10dp">
@@ -27,62 +27,73 @@
         android:layout_marginEnd="5dp"
         android:fontFamily="@font/roboto_medium"
         app:layout_constraintEnd_toStartOf="@id/percent_packaging"
-        android:lines="2"
         app:layout_constraintHorizontal_weight="2"
         app:layout_constraintStart_toEndOf="@id/image_packaging"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="Galleta rellenitas coco GN 6 galletas" />
 
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/txt_individual_num_packaging"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        app:layout_constraintStart_toEndOf="@id/image_packaging"
+        app:layout_constraintTop_toBottomOf="@id/packaging_name"
+        app:layout_constraintEnd_toStartOf="@id/percent_packaging"
+        tools:text="Número de empaques: 10" />
+
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/octagon_high_sugar"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="55dp"
+        android:layout_height="55dp"
         android:layout_marginTop="5dp"
         android:src="@drawable/alto_azucar"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/octagon_high_saturated_fats"
         app:layout_constraintStart_toStartOf="@id/packaging_name"
-        app:layout_constraintTop_toBottomOf="@id/packaging_name"
+        app:layout_constraintTop_toBottomOf="@id/txt_individual_num_packaging"
         tools:visibility="visible" />
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/octagon_high_saturated_fats"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="55dp"
+        android:layout_height="55dp"
         android:layout_marginTop="5dp"
         android:src="@drawable/alto_grasas_saturadas"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/octagon_high_sodium"
         app:layout_constraintStart_toEndOf="@id/octagon_high_sugar"
-        app:layout_constraintTop_toBottomOf="@id/packaging_name"
+        app:layout_constraintTop_toBottomOf="@id/txt_individual_num_packaging"
         tools:visibility="visible" />
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/octagon_high_sodium"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="55dp"
+        android:layout_height="55dp"
         android:layout_marginTop="5dp"
         android:src="@drawable/alto_sodio"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/octagon_content_trans_fats"
         app:layout_constraintStart_toEndOf="@id/octagon_high_saturated_fats"
-        app:layout_constraintTop_toBottomOf="@id/packaging_name"
+        app:layout_constraintTop_toBottomOf="@id/txt_individual_num_packaging"
         tools:visibility="visible" />
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/octagon_content_trans_fats"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="55dp"
+        android:layout_height="55dp"
         android:layout_marginTop="5dp"
         android:src="@drawable/contiene_grasas_trans"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@id/packaging_name"
         app:layout_constraintStart_toEndOf="@id/octagon_high_sodium"
-        app:layout_constraintTop_toBottomOf="@id/packaging_name"
+        app:layout_constraintTop_toBottomOf="@id/txt_individual_num_packaging"
         tools:visibility="visible" />
 
     <com.google.android.material.textview.MaterialTextView

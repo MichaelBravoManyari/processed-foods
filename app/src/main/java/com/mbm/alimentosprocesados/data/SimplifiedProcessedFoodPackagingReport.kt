@@ -6,5 +6,6 @@ data class SimplifiedProcessedFoodPackagingReport(
     val highSaturatedFats: Boolean,
     val highTransFats: Boolean,
     val highSodium: Boolean,
-    val percentage: Float
+    val percentage: Float,
+    val numPackaging: Int
 )

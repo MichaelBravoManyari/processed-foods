@@ -16,8 +16,11 @@ class MonthlyReportForDiscardedProcessedFoodPackagesWithOctagonsByBrandViewModel
         ProcessedFoodPackagingWithOctagonsRepository()
 
     private var _uiState =
-        MutableStateFlow<MonthlyReportForDiscardedProcessedFoodPackagesWithOctagonsByBrandUiState>(MonthlyReportForDiscardedProcessedFoodPackagesWithOctagonsByBrandUiState.Loading)
-    val uiState: StateFlow<MonthlyReportForDiscardedProcessedFoodPackagesWithOctagonsByBrandUiState> = _uiState
+        MutableStateFlow<MonthlyReportForDiscardedProcessedFoodPackagesWithOctagonsByBrandUiState>(
+            MonthlyReportForDiscardedProcessedFoodPackagesWithOctagonsByBrandUiState.Loading
+        )
+    val uiState: StateFlow<MonthlyReportForDiscardedProcessedFoodPackagesWithOctagonsByBrandUiState> =
+        _uiState
 
     init {
         updateReport(LocalDate.now().year, LocalDate.now().month.value)
@@ -47,10 +50,14 @@ class MonthlyReportForDiscardedProcessedFoodPackagesWithOctagonsByBrandViewModel
                                 highSaturatedFats,
                                 highTransFats,
                                 highSodium,
-                                percentage
+                                percentage,
+                                entry.value.size
                             )
                         }.values.toList()
-                        MonthlyReportForDiscardedProcessedFoodPackagesWithOctagonsByBrandUiState.Success(reportMap)
+                        MonthlyReportForDiscardedProcessedFoodPackagesWithOctagonsByBrandUiState.Success(
+                            reportMap,
+                            totalReports
+                        )
                     }
                 }
                 .catch { _ ->
@@ -67,7 +74,8 @@ sealed interface MonthlyReportForDiscardedProcessedFoodPackagesWithOctagonsByBra
     data object Loading : MonthlyReportForDiscardedProcessedFoodPackagesWithOctagonsByBrandUiState
 
     data class Success(
-        val reports: List<SimplifiedProcessedFoodPackagingReport>
+        val reports: List<SimplifiedProcessedFoodPackagingReport>,
+        val numPackaging: Int
     ) : MonthlyReportForDiscardedProcessedFoodPackagesWithOctagonsByBrandUiState
 
     data object Failure : MonthlyReportForDiscardedProcessedFoodPackagesWithOctagonsByBrandUiState

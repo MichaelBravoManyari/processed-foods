@@ -2,11 +2,11 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@id/monthlyFoodOctagonsReportFragment"
-        android:title="@string/tittle_report_1" />
+        android:title="@string/report_1" />
     <item
         android:id="@id/monthlyDetailedNutritionalFoodReportFragment"
-        android:title="@string/report_tittle_2" />
+        android:title="@string/report_2" />
     <item
         android:id="@id/monthlyReportForDiscardedProcessedFoodPackagesWithOctagonsByBrandFragment"
-        android:title="@string/report_tittle_3" />
+        android:title="@string/report_3" />
 </menu>

@@ -94,6 +94,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:gravity="center"
+        android:layout_marginStart="10dp"
         android:text="@string/report_tittle_3"
         android:visibility="invisible"
         android:fontFamily="@font/roboto_medium"
@@ -101,6 +102,15 @@
         app:layout_constraintStart_toEndOf="@id/txt_layout_spinner_month"
         app:layout_constraintTop_toTopOf="parent"
         tools:visibility="visible" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/txt_num_packaging"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        app:layout_constraintStart_toStartOf="@id/title_report"
+        app:layout_constraintTop_toBottomOf="@id/title_report"
+        tools:text="Número de empaques analizados: 500" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view_brand"
@@ -112,6 +122,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/txt_layout_spinner_month"
-        app:layout_constraintTop_toBottomOf="@id/title_report"
+        app:layout_constraintTop_toBottomOf="@id/txt_num_packaging"
         tools:listitem="@layout/item_packaging_food_brand"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

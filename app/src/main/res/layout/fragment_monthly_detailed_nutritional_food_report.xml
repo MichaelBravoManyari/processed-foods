@@ -101,10 +101,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
+            android:fontFamily="@font/roboto_medium"
             android:gravity="center"
             android:text="@string/report_tittle_2"
             android:visibility="invisible"
-            android:fontFamily="@font/roboto_medium"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/txt_layout_year"
@@ -117,11 +117,21 @@
             android:layout_marginTop="20dp"
             android:layout_marginBottom="10dp"
             android:visibility="invisible"
-            app:layout_constraintBottom_toTopOf="@id/txt_alto_grasas_saturadas"
+            app:layout_constraintBottom_toTopOf="@id/txt_num_packaging"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/title_report"
             tools:visibility="visible" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/txt_num_packaging"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            app:layout_constraintBottom_toTopOf="@id/txt_alto_grasas_saturadas"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/horizontal_bar_chart"
+            tools:text="Número de empaques analizados: 500" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/color_alto_grasas_saturadas"
@@ -145,7 +155,7 @@
             android:visibility="invisible"
             app:layout_constraintBottom_toTopOf="@id/txt_contiene_grasas_trans"
             app:layout_constraintStart_toEndOf="@id/color_alto_grasas_saturadas"
-            app:layout_constraintTop_toBottomOf="@id/horizontal_bar_chart"
+            app:layout_constraintTop_toBottomOf="@id/txt_num_packaging"
             tools:text="Nivel promedio de grasas saturadas: 10%"
             tools:visibility="visible" />
 

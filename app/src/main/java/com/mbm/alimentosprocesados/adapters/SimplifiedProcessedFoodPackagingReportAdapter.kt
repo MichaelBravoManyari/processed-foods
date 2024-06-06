@@ -40,6 +40,11 @@ class SimplifiedProcessedFoodPackagingReportAdapter :
                     }
                 packagingName.text = formattedName
 
+                txtIndividualNumPackaging.text = root.resources.getString(
+                    R.string.alone_num_packaging,
+                    report.numPackaging.toString()
+                )
+
                 // Asignar el porcentaje
                 "${report.percentage.toInt()}%".also { percentPackaging.text = it }
 

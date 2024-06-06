@@ -33,6 +33,7 @@ import com.mbm.alimentosprocesados.databinding.FragmentMonthlyFoodOctagonsReport
 import com.mbm.alimentosprocesados.viewmodels.MonthlyFoodOctagonsReportUiState
 import com.mbm.alimentosprocesados.viewmodels.MonthlyFoodOctagonsReportViewModel
 import kotlinx.coroutines.launch
+import java.time.LocalDate
 
 
 class MonthlyFoodOctagonsReportFragment : Fragment() {
@@ -51,6 +52,10 @@ class MonthlyFoodOctagonsReportFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        binding.editTextYear.setText(LocalDate.now().year.toString())
+        val monthsArray = resources.getStringArray(R.array.months_array)
+        val actualMonth = monthsArray[LocalDate.now().month.value - 1]
+        binding.spinnerMonth.setText(actualMonth, false)
         observeUiState()
         setupSearchButton()
     }
@@ -117,18 +122,33 @@ class MonthlyFoodOctagonsReportFragment : Fragment() {
 
     private fun updateReportTextWithAnimation(uiState: MonthlyFoodOctagonsReportUiState.Success) {
         binding.apply {
-            animateTextChange(txtAltoGrasasSaturadas, getString(
-                R.string.percent_high_saturated_fats, uiState.percentageOfPackagesHighInSaturatedFats.toString()
-            ))
-            animateTextChange(txtContieneGrasasTrans, getString(
-                R.string.percent_content_trans_fats, uiState.percentageOfPackagesHighInTransFats.toString()
-            ))
-            animateTextChange(txtAltoAzucar, getString(
-                R.string.percent_high_sugar, uiState.percentageOfPackagesHighInSugar.toString()
-            ))
-            animateTextChange(txtAltoSodio, getString(
-                R.string.percent_high_sodium, uiState.percentageOfPackagesHighInSodium.toString()
-            ))
+            animateTextChange(
+                txtNumPackaging,
+                getString(R.string.num_packaging, uiState.numPackaging.toString())
+            )
+            animateTextChange(
+                txtAltoGrasasSaturadas, getString(
+                    R.string.percent_high_saturated_fats,
+                    uiState.percentageOfPackagesHighInSaturatedFats.toString()
+                )
+            )
+            animateTextChange(
+                txtContieneGrasasTrans, getString(
+                    R.string.percent_content_trans_fats,
+                    uiState.percentageOfPackagesHighInTransFats.toString()
+                )
+            )
+            animateTextChange(
+                txtAltoAzucar, getString(
+                    R.string.percent_high_sugar, uiState.percentageOfPackagesHighInSugar.toString()
+                )
+            )
+            animateTextChange(
+                txtAltoSodio, getString(
+                    R.string.percent_high_sodium,
+                    uiState.percentageOfPackagesHighInSodium.toString()
+                )
+            )
         }
     }
 
@@ -222,16 +242,25 @@ class MonthlyFoodOctagonsReportFragment : Fragment() {
 
     private fun setReportVisibility(visibility: Int) {
         val views = listOf(
-            binding.titleReport, binding.barChart, binding.colorAltoGrasasSaturadas,
-            binding.txtAltoGrasasSaturadas, binding.colorAltoGrasasTrans, binding.txtContieneGrasasTrans,
-            binding.colorAltoAzucar, binding.txtAltoAzucar, binding.colorAltoSodio, binding.txtAltoSodio
+            binding.titleReport,
+            binding.txtNumPackaging,
+            binding.barChart,
+            binding.colorAltoGrasasSaturadas,
+            binding.txtAltoGrasasSaturadas,
+            binding.colorAltoGrasasTrans,
+            binding.txtContieneGrasasTrans,
+            binding.colorAltoAzucar,
+            binding.txtAltoAzucar,
+            binding.colorAltoSodio,
+            binding.txtAltoSodio
         )
 
         views.forEach { it.visibility = visibility }
     }
 
     private fun hideKeyboard() {
-        val imm = requireContext().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        val imm =
+            requireContext().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
         imm.hideSoftInputFromWindow(view?.windowToken, 0)
     }
 

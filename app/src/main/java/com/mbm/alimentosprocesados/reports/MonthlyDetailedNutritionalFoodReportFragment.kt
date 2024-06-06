@@ -34,6 +34,7 @@ import com.mbm.alimentosprocesados.databinding.FragmentMonthlyDetailedNutritiona
 import com.mbm.alimentosprocesados.viewmodels.MonthlyDetailedNutritionalFoodReportUiState
 import com.mbm.alimentosprocesados.viewmodels.MonthlyDetailedNutritionalFoodReportViewModel
 import kotlinx.coroutines.launch
+import java.time.LocalDate
 
 class MonthlyDetailedNutritionalFoodReportFragment : Fragment() {
 
@@ -54,6 +55,10 @@ class MonthlyDetailedNutritionalFoodReportFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding.editTextYear.setText(LocalDate.now().year.toString())
+        val monthsArray = resources.getStringArray(R.array.months_array)
+        val actualMonth = monthsArray[LocalDate.now().month.value - 1]
+        binding.spinnerMonth.setText(actualMonth, false)
         observeUiState()
         setupSearchButton()
     }
@@ -178,6 +183,7 @@ class MonthlyDetailedNutritionalFoodReportFragment : Fragment() {
         val views = listOf(
             binding.titleReport,
             binding.horizontalBarChart,
+            binding.txtNumPackaging,
             binding.colorAltoGrasasSaturadas,
             binding.txtAltoGrasasSaturadas,
             binding.colorAltoGrasasTrans,
@@ -193,6 +199,10 @@ class MonthlyDetailedNutritionalFoodReportFragment : Fragment() {
 
     private fun updateReportTextWithAnimation(uiState: MonthlyDetailedNutritionalFoodReportUiState.Success) {
         binding.apply {
+            animateTextChange(
+                txtNumPackaging,
+                getString(R.string.num_packaging, uiState.numPackaging.toString())
+            )
             animateTextChange(
                 txtAltoGrasasSaturadas, getString(
                     R.string.percent_average_saturated_fats,

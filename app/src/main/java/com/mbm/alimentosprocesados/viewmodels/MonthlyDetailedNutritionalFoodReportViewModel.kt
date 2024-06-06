@@ -48,19 +48,22 @@ class MonthlyDetailedNutritionalFoodReportViewModel : ViewModel() {
                         val averageSugar = totalSugar / totalReports
                         val averageSodium = totalSodium / totalReports
 
+                        val totalAverage = averageSaturatedFats + averageTransFats + averageSugar + averageSodium
+
                         MonthlyDetailedNutritionalFoodReportUiState.Success(
                             averageSaturatedFats = "%.2f".format(averageSaturatedFats).toFloat(),
                             averageTransFats = "%.2f".format(averageTransFats).toFloat(),
                             averageSugar = "%.2f".format(averageSugar).toFloat(),
                             averageSodium = "%.2f".format(averageSodium).toFloat(),
-                            percentageOfAverageSaturatedFats = "%.2f".format(((averageSaturatedFats / totalReports) * 100f))
+                            percentageOfAverageSaturatedFats = "%.2f".format(((averageSaturatedFats  / totalAverage) * 100f))
                                 .toFloat(),
-                            percentageOfAverageTransFats = "%.2f".format(((averageTransFats / totalReports) * 100f))
+                            percentageOfAverageTransFats = "%.2f".format(((averageTransFats  / totalAverage) * 100f))
                                 .toFloat(),
-                            percentageOfAverageSugar = "%.2f".format(((averageSugar / totalReports) * 100f))
+                            percentageOfAverageSugar = "%.2f".format(((averageSugar / totalAverage) * 100f))
                                 .toFloat(),
-                            percentageOfAverageSodium = "%.2f".format(((averageSodium / totalReports) * 100f))
-                                .toFloat()
+                            percentageOfAverageSodium = "%.2f".format(((averageSodium / totalAverage) * 100f))
+                                .toFloat(),
+                            totalReports
                         )
                     }
                 }
@@ -85,7 +88,8 @@ sealed interface MonthlyDetailedNutritionalFoodReportUiState {
         val percentageOfAverageSaturatedFats: Float,
         val percentageOfAverageTransFats: Float,
         val percentageOfAverageSugar: Float,
-        val percentageOfAverageSodium: Float
+        val percentageOfAverageSodium: Float,
+        val numPackaging: Int
     ) : MonthlyDetailedNutritionalFoodReportUiState
 
     data object Failure : MonthlyDetailedNutritionalFoodReportUiState
