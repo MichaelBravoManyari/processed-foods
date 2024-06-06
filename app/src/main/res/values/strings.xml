@@ -1,0 +1,33 @@
+<resources>
+    <string name="app_name">Alimentos procesados</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="ingresar_email">Ingresar con email</string>
+    <string name="ingresar_google">Ingresar con Google</string>
+    <string name="eres_nuevo_registrate_aqu">¿Eres nuevo? Registrate aquí</string>
+    <string name="imagen_inicio_sesi_n">imagen inicio sesión</string>
+    <string name="email">Email</string>
+    <string name="contrasena">Contraseña</string>
+    <string name="ingresar">Ingresar</string>
+    <string name="cancelar">Cancelar</string>
+    <string name="registrar">Registrar</string>
+    <string name="web_client_id">1094463477117-vcn2pr8n64fp1f0jrgs2ltrb1abrdj5i.apps.googleusercontent.com</string>
+    <string name="cerrar_sesion">Cerrar sesión</string>
+    <string name="reporte_mensual_de_alimentos_por_oct_gonos">Reporte mensual de alimentos por octógonos</string>
+    <string name="mes">Mes</string>
+    <string name="anio">Año</string>
+    <string name="buscar">Buscar</string>
+    <string name="ingrese_el_a_o">Ingrese el año</string>
+    <string name="no_data">No se encontraron datos</string>
+    <string name="percent_high_saturated_fats">Alto en grasas saturadas: %1$s"%%"</string>
+    <string name="percent_content_trans_fats">Contiene grasas trans: %1$s"%%"</string>
+    <string name="percent_high_sugar">Alto en azúcar: %1$s"%%"</string>
+    <string name="percent_high_sodium">Alto en sodio: %1$s"%%"</string>
+    <string name="percent_average_saturated_fats">Nivel promedio de grasas saturadas: %1$s"%%"</string>
+    <string name="percent_average_trans_fats">Nivel promedio de grasas trans: %1$s"%%"</string>
+    <string name="percent_average_sugar">Nivel promedio de azúcar: %1$s"%%"</string>
+    <string name="percent_average_sodium">Nivel promedio de sodio: %1$s"%%"</string>
+    <string name="tittle_report_1">Empaques de alimentos procesados con octógonos desechados en el mes</string>
+    <string name="report_tittle_2">Información nutricional de los empaques de los alimentos procesados con octógonos desechados en el mes (gr)</string>
+    <string name="report_tittle_3">Empaques de alimentos procesados con octógonos desechados en el mes por marca</string>
+</resources>

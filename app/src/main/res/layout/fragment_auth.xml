@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/padding_root_layout_fragment_auth"
+    tools:context=".session.AuthFragment">
+
+    <ImageView
+        android:id="@+id/img_inicio_sesion"
+        android:layout_width="0dp"
+        android:layout_height="400dp"
+        android:src="@drawable/cando_abierto"
+        android:contentDescription="@string/imagen_inicio_sesi_n"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_iniciar_email"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:text="@string/ingresar_email"
+        app:icon="@drawable/ic_email"
+        android:layout_marginTop="30dp"
+        app:iconGravity="textStart"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/img_inicio_sesion" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_iniciar_google"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/ingresar_google"
+        android:layout_marginTop="15dp"
+        app:icon="@drawable/logo_google"
+        app:iconGravity="textStart"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_iniciar_email" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/nuevo_usuario"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="@string/eres_nuevo_registrate_aqu"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_iniciar_google" />
+</androidx.constraintlayout.widget.ConstraintLayout>

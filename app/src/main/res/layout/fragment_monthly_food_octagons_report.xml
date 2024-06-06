@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".reports.MonthlyFoodOctagonsReportFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="10dp">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/txt_layout_spinner_month"
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toStartOf="@id/txt_layout_year"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.mbm.alimentosprocesados.customviews.ExposedDropdownMenu
+                android:id="@+id/spinner_month"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/mes"
+                android:importantForAccessibility="no"
+                android:inputType="none"
+                app:simpleItems="@array/months_array" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/txt_layout_year"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            app:errorEnabled="true"
+            app:layout_constraintEnd_toStartOf="@id/btn_search"
+            app:layout_constraintStart_toEndOf="@id/txt_layout_spinner_month"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edit_Text_year"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/anio"
+                android:inputType="number" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_search"
+            style="?attr/materialButtonOutlinedStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="@string/buscar"
+            app:layout_constraintBaseline_toBaselineOf="@id/txt_layout_year"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/txt_layout_year"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.progressindicator.CircularProgressIndicator
+            android:id="@+id/progress_circular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:indeterminate="true"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txt_layout_year"
+            tools:visibility="invisible" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/failure_image"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:src="@drawable/ic_failure"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txt_layout_year"
+            tools:visibility="invisible" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/no_data_image"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:src="@drawable/ic_no_results"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txt_layout_year"
+            tools:visibility="invisible" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/title_report"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/tittle_report_1"
+            android:visibility="invisible"
+            android:fontFamily="@font/roboto_medium"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txt_layout_year"
+            android:layout_marginTop="10dp"
+            tools:visibility="visible" />
+
+        <com.github.mikephil.charting.charts.BarChart
+            android:id="@+id/bar_chart"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="10dp"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toTopOf="@id/txt_alto_grasas_saturadas"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/title_report"
+            tools:visibility="visible" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/color_alto_grasas_saturadas"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:background="@drawable/ic_circle"
+            android:backgroundTint="@color/saturatedFatsColor"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="@id/txt_alto_grasas_saturadas"
+            app:layout_constraintEnd_toStartOf="@id/txt_alto_grasas_saturadas"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/txt_alto_grasas_saturadas"
+            tools:visibility="visible" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/txt_alto_grasas_saturadas"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginBottom="10dp"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toTopOf="@id/txt_contiene_grasas_trans"
+            app:layout_constraintStart_toEndOf="@id/color_alto_grasas_saturadas"
+            app:layout_constraintTop_toBottomOf="@id/bar_chart"
+            tools:text="Alto en grasas saturadas: 10%"
+            tools:visibility="visible" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/color_alto_grasas_trans"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:background="@drawable/ic_circle"
+            android:backgroundTint="@color/transFatsColor"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="@id/txt_contiene_grasas_trans"
+            app:layout_constraintEnd_toStartOf="@id/txt_contiene_grasas_trans"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/txt_contiene_grasas_trans"
+            tools:visibility="visible" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/txt_contiene_grasas_trans"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginBottom="10dp"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toTopOf="@id/txt_alto_azucar"
+            app:layout_constraintStart_toEndOf="@id/color_alto_grasas_trans"
+            app:layout_constraintTop_toBottomOf="@id/txt_alto_grasas_saturadas"
+            tools:text="Contiene grasas trans: 15%"
+            tools:visibility="visible" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/color_alto_azucar"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:background="@drawable/ic_circle"
+            android:backgroundTint="@color/sugarColor"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="@id/txt_alto_azucar"
+            app:layout_constraintEnd_toStartOf="@id/txt_alto_azucar"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/txt_alto_azucar"
+            tools:visibility="visible" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/txt_alto_azucar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginBottom="10dp"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toTopOf="@id/txt_alto_sodio"
+            app:layout_constraintStart_toEndOf="@id/color_alto_azucar"
+            tools:text="Alto en azúcar: 20%"
+            tools:visibility="visible" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/color_alto_sodio"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:background="@drawable/ic_circle"
+            android:backgroundTint="@color/sodiumColor"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="@id/txt_alto_sodio"
+            app:layout_constraintEnd_toStartOf="@id/txt_alto_sodio"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/txt_alto_sodio"
+            tools:visibility="visible" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/txt_alto_sodio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/color_alto_sodio"
+            tools:text="Alto en sodio: 30%"
+            tools:visibility="visible" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

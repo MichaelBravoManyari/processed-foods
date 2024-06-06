@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/monthlyFoodOctagonsReportFragment">
+
+    <fragment
+        android:id="@+id/authFragment"
+        android:name="com.mbm.alimentosprocesados.session.AuthFragment"
+        android:label="fragment_auth"
+        tools:layout="@layout/fragment_auth">
+        <action
+            android:id="@+id/action_authFragment_to_emailLoginFragment"
+            app:destination="@id/emailLoginFragment" />
+        <action
+            android:id="@+id/action_authFragment_to_emailSignUpFragment"
+            app:destination="@id/emailSignUpFragment" />
+        <action
+            android:id="@+id/action_authFragment_to_monthlyFoodOctagonsReportFragment"
+            app:destination="@id/monthlyFoodOctagonsReportFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/emailLoginFragment"
+        android:name="com.mbm.alimentosprocesados.session.EmailLoginFragment"
+        android:label="fragment_email_login"
+        tools:layout="@layout/fragment_email_login">
+        <action
+            android:id="@+id/action_emailLoginFragment_to_authFragment"
+            app:destination="@id/authFragment" />
+        <action
+            android:id="@+id/action_emailLoginFragment_to_monthlyFoodOctagonsReportFragment"
+            app:destination="@id/monthlyFoodOctagonsReportFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/emailSignUpFragment"
+        android:name="com.mbm.alimentosprocesados.session.EmailSignUpFragment"
+        android:label="fragment_email_sign_up"
+        tools:layout="@layout/fragment_email_sign_up">
+        <action
+            android:id="@+id/action_emailSignUpFragment_to_authFragment"
+            app:destination="@id/authFragment" />
+        <action
+            android:id="@+id/action_emailSignUpFragment_to_monthlyFoodOctagonsReportFragment"
+            app:destination="@id/monthlyFoodOctagonsReportFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/monthlyFoodOctagonsReportFragment"
+        android:name="com.mbm.alimentosprocesados.reports.MonthlyFoodOctagonsReportFragment"
+        android:label="@string/tittle_report_1"
+        tools:layout="@layout/fragment_monthly_food_octagons_report">
+        <action
+            android:id="@+id/action_monthlyFoodOctagonsReportFragment_to_authFragment"
+            app:destination="@id/authFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/monthlyDetailedNutritionalFoodReportFragment"
+        android:name="com.mbm.alimentosprocesados.reports.MonthlyDetailedNutritionalFoodReportFragment"
+        android:label="@string/report_tittle_2"
+        tools:layout="@layout/fragment_monthly_detailed_nutritional_food_report" />
+    <fragment
+        android:id="@+id/monthlyReportForDiscardedProcessedFoodPackagesWithOctagonsByBrandFragment"
+        android:name="com.mbm.alimentosprocesados.reports.MonthlyReportForDiscardedProcessedFoodPackagesWithOctagonsByBrandFragment"
+        android:label="@string/report_tittle_3"
+        tools:layout="@layout/fragment_monthly_report_for_discarded_processed_food_packages_with_octagons_by_brand" />
+</navigation>
