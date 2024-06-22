@@ -183,10 +183,7 @@ class MonthlyReportForDiscardedProcessedFoodPackagesWithOctagonsByBrandFragment 
                 }
             } else {
                 binding.editTextYear.error = "Ingrese un año"
-                Log.d(
-                    "MonthlyReportForDiscardedProcessedFoodPackagesWithOctagonsByBrandFragment",
-                    "Year empty"
-                )
+                Log.d("MonthlyReportForDiscardedProcessedFoodPackagesWithOctagonsByBrandFragment", "Year empty")
             }
         }
     }

@@ -31,8 +31,11 @@
     <string name="report_tittle_2">Información nutricional de los empaques de los alimentos procesados con octógonos desechados en el mes (gr)</string>
     <string name="report_tittle_3">Empaques de alimentos procesados con octógonos desechados en el mes por marca</string>
     <string name="num_packaging">Número de empaques analizados: %1$s</string>
-    <string name="alone_num_packaging">Número de empaques: %1$s</string>
+    <string name="alone_num_packaging">N° de empaques: %1$s</string>
     <string name="report_1">Reporte 1</string>
     <string name="report_2">Reporte 2</string>
     <string name="report_3">Reporte 3</string>
+    <string name="prototype_on">Encender prototipo</string>
+    <string name="prototype_off">Apagar prototipo</string>
+    <string name="prototype_restarted">Reiniciar prototipo</string>
 </resources>

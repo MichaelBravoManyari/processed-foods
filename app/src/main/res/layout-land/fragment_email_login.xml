@@ -4,18 +4,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".session.EmailLoginFragment"
-    android:padding="10dp">
+    android:padding="10dp"
+    tools:context=".session.EmailLoginFragment">
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/edit_text_layout_email"
-        android:layout_width="300dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
         app:errorEnabled="true"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/edit_text_layout_contrasena"
+        app:layout_constraintEnd_toStartOf="@id/btn_iniciar_sesion"
+        app:layout_constraintHorizontal_weight="2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="10dp">
+        app:layout_constraintVertical_chainStyle="packed">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edit_text_email"
@@ -29,14 +32,15 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/edit_text_layout_contrasena"
-        android:layout_width="300dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
         app:errorEnabled="true"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/edit_text_layout_email"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/edit_text_layout_email"
-        app:passwordToggleEnabled="true"
-        android:layout_marginTop="5dp">
+        app:passwordToggleEnabled="true">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edit_text_contrasena"
@@ -50,21 +54,25 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_iniciar_sesion"
-        android:layout_width="300dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="@string/ingresar"
         android:layout_marginTop="15dp"
+        android:text="@string/ingresar"
+        app:layout_constraintBottom_toTopOf="@id/btn_cancelar"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/edit_text_layout_contrasena" />
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintStart_toEndOf="@id/edit_text_layout_email"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_cancelar"
-        android:layout_width="300dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/cancelar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/btn_iniciar_sesion"
+        app:layout_constraintStart_toStartOf="@id/btn_iniciar_sesion"
         app:layout_constraintTop_toBottomOf="@id/btn_iniciar_sesion" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

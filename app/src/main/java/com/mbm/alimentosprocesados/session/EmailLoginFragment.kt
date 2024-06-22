@@ -30,27 +30,61 @@ class EmailLoginFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setupClickListeners(view)
+    }
+
+    private fun setupClickListeners(view: View) {
         binding.btnCancelar.setOnClickListener {
-            view.findNavController().navigate(R.id.action_emailLoginFragment_to_authFragment)
+            navigateToAuthFragment(view)
         }
         binding.btnIniciarSesion.setOnClickListener {
-            val email = binding.editTextEmail.text.toString()
-            val password = binding.editTextContrasena.text.toString()
-            if (isValidEmail(email)) {
-                if (password.isNotEmpty()) {
-                    auth.signInWithEmailAndPassword(email, password).addOnCompleteListener {
-                        if (it.isSuccessful)
-                            findNavController().navigate(R.id.action_emailLoginFragment_to_monthlyFoodOctagonsReportFragment)
-                        else
-                            showAlert("Error al identificar el usuario", requireContext())
-                    }
-                } else {
-                    binding.editTextContrasena.error = "Ingrese contraseña"
-                }
+            handleLogin()
+        }
+    }
+
+    private fun navigateToAuthFragment(view: View) {
+        view.findNavController().navigate(R.id.action_emailLoginFragment_to_authFragment)
+    }
+
+    private fun handleLogin() {
+        val email = binding.editTextEmail.text.toString().trim()
+        val password = binding.editTextContrasena.text.toString().trim()
+        if (isValidEmail(email) && password.isNotEmpty()) {
+            signInWithEmail(email, password)
+        } else {
+            showValidationErrors(email, password)
+        }
+    }
+
+    private fun signInWithEmail(email: String, password: String) {
+        auth.signInWithEmailAndPassword(email, password).addOnCompleteListener { task ->
+            if (task.isSuccessful) {
+                navigateToMonthlyReportFragment()
             } else {
-                binding.editTextEmail.error = "Correo incorrecto"
+                showAlert("Error al identificar el usuario", requireContext())
             }
         }
+    }
+
+    private fun navigateToMonthlyReportFragment() {
+        findNavController().navigate(R.id.action_emailLoginFragment_to_monthlyFoodOctagonsReportFragment)
+    }
+
+    private fun showValidationErrors(email: String, password: String) {
+        if (email.isNotEmpty()) {
+            if (!isValidEmail(email)) {
+                binding.editTextLayoutEmail.error = "Correo incorrecto"
+            }
+        } else {
+            binding.editTextLayoutEmail.error = "Ingrese su correo"
+        }
+        if (password.isEmpty()) {
+            binding.editTextLayoutContrasena.error = "Ingrese contraseña"
+        }
+    }
+
+    private fun isValidEmail(email: String): Boolean {
+        return android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()
     }
 
     override fun onDestroyView() {

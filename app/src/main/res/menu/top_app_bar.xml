@@ -3,5 +3,13 @@
 
     <item
         android:id="@+id/cerrar_sesion"
-        android:title="@string/cerrar_sesion"/>
+        android:title="@string/cerrar_sesion" />
+
+    <item
+        android:id="@+id/encender_apagar_prototipo"
+        android:title="@string/prototype_on" />
+
+    <item
+        android:id="@+id/reiniciar_prototipo"
+        android:title="@string/prototype_restarted" />
 </menu>

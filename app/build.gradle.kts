@@ -59,6 +59,10 @@ dependencies {
     implementation (libs.googleid)
     implementation(libs.firebase.firestore)
     implementation(libs.philjay.mpandroidchart)
+    implementation(libs.squareup.retrofit)
+    implementation(libs.converter.gson)
+    implementation(libs.androidx.work.runtime.ktx)
+
 
 
     testImplementation(libs.junit)

@@ -97,6 +97,7 @@
             android:id="@+id/title_report"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_medium"
             android:gravity="center"
             android:text="@string/tittle_report_1"
             android:visibility="invisible"

@@ -4,43 +4,48 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="@dimen/padding_root_layout_fragment_auth"
+    android:padding="10dp"
     tools:context=".session.AuthFragment">
 
     <ImageView
         android:id="@+id/img_inicio_sesion"
         android:layout_width="0dp"
-        android:layout_height="400dp"
-        android:src="@drawable/cando_abierto"
-        android:layout_marginTop="10dp"
+        android:layout_height="0dp"
         android:contentDescription="@string/imagen_inicio_sesi_n"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:src="@drawable/cando_abierto"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/btn_iniciar_email"
+        app:layout_constraintHorizontal_weight="2"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_iniciar_email"
-        android:layout_width="300dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/ingresar_email"
         app:icon="@drawable/ic_email"
-        android:layout_marginTop="30dp"
         app:iconGravity="textStart"
+        app:layout_constraintBottom_toTopOf="@id/btn_iniciar_google"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/img_inicio_sesion" />
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintStart_toEndOf="@id/img_inicio_sesion"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_iniciar_google"
-        android:layout_width="300dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
         android:gravity="center"
         android:text="@string/ingresar_google"
-        android:layout_marginTop="15dp"
         app:icon="@drawable/logo_google"
         app:iconGravity="textStart"
+        app:layout_constraintBottom_toTopOf="@id/nuevo_usuario"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@id/img_inicio_sesion"
         app:layout_constraintTop_toBottomOf="@id/btn_iniciar_email" />
 
     <com.google.android.material.textview.MaterialTextView
@@ -50,7 +55,9 @@
         android:layout_marginTop="30dp"
         android:text="@string/eres_nuevo_registrate_aqu"
         android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintStart_toEndOf="@id/img_inicio_sesion"
         app:layout_constraintTop_toBottomOf="@id/btn_iniciar_google" />
 </androidx.constraintlayout.widget.ConstraintLayout>

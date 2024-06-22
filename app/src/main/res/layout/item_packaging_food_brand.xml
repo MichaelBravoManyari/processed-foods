@@ -42,7 +42,7 @@
         app:layout_constraintStart_toEndOf="@id/image_packaging"
         app:layout_constraintTop_toBottomOf="@id/packaging_name"
         app:layout_constraintEnd_toStartOf="@id/percent_packaging"
-        tools:text="Número de empaques: 10" />
+        tools:text="N° de empaques: 10" />
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/octagon_high_sugar"
