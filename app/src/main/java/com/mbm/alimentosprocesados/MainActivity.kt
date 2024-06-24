@@ -6,6 +6,8 @@ import android.content.Context
 import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.view.View
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
@@ -20,6 +22,7 @@ import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupWithNavController
+import androidx.work.ExistingPeriodicWorkPolicy
 import androidx.work.PeriodicWorkRequestBuilder
 import androidx.work.WorkManager
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
@@ -69,7 +72,11 @@ class MainActivity : AppCompatActivity() {
         val detectionWorkRequest = PeriodicWorkRequestBuilder<DetectionWorker>(15, TimeUnit.MINUTES)
             .build()
 
-        WorkManager.getInstance(this).enqueue(detectionWorkRequest)
+        WorkManager.getInstance(this).enqueueUniquePeriodicWork(
+            "detectionWorker",
+            ExistingPeriodicWorkPolicy.KEEP,
+            detectionWorkRequest
+        )
 
         createNotificationChannel()
 
@@ -285,22 +292,34 @@ class MainActivity : AppCompatActivity() {
         binding.topAppBar.setOnMenuItemClickListener { menuItem ->
             when (menuItem.itemId) {
                 R.id.cerrar_sesion -> {
+                    menuItem.isEnabled = false
                     auth.signOut()
-                    navController.navigate(R.id.action_monthlyFoodOctagonsReportFragment_to_authFragment)
+                    navController.navigate(R.id.authFragment)
+                    Handler(Looper.getMainLooper()).postDelayed({
+                        menuItem.isEnabled = true
+                    }, 1000)
                     true
                 }
 
                 R.id.encender_apagar_prototipo -> {
+                    menuItem.isEnabled = false
                     if (PreferencesHelper(this).isPrototypeOn)
                         viewModel.turnOffPrototype()
                     else {
                         viewModel.turnOnPrototype()
                     }
+                    Handler(Looper.getMainLooper()).postDelayed({
+                        menuItem.isEnabled = true
+                    }, 1000)
                     true
                 }
 
                 R.id.reiniciar_prototipo -> {
+                    menuItem.isEnabled = false
                     viewModel.restartPrototype()
+                    Handler(Looper.getMainLooper()).postDelayed({
+                        menuItem.isEnabled = true
+                    }, 1000)
                     true
                 }
 

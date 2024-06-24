@@ -5,6 +5,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.OnBackPressedCallback
 import androidx.credentials.CredentialManager
 import androidx.credentials.CustomCredential
 import androidx.credentials.GetCredentialRequest
@@ -41,18 +42,29 @@ class AuthFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        requireActivity().onBackPressedDispatcher.addCallback(
+            viewLifecycleOwner,
+            object : OnBackPressedCallback(true) {
+                override fun handleOnBackPressed() {
+                    requireActivity().finishAffinity()
+                }
+            })
+
         binding.btnIniciarEmail.setOnClickListener {
             view.findNavController().navigate(R.id.action_authFragment_to_emailLoginFragment)
         }
         binding.btnIniciarGoogle.setOnClickListener {
-            signInWithGoogle()
+            if (view.isEnabled) {
+                view.isEnabled = false
+                signInWithGoogle(view)
+            }
         }
         binding.nuevoUsuario.setOnClickListener {
             view.findNavController().navigate(R.id.action_authFragment_to_emailSignUpFragment)
         }
     }
 
-    private fun signInWithGoogle() {
+    private fun signInWithGoogle(view: View) {
         val googleIdOption =
             GetSignInWithGoogleOption.Builder(getString(R.string.web_client_id))
                 .build()
@@ -61,15 +73,16 @@ class AuthFragment : Fragment() {
             try {
                 val result = CredentialManager.create(requireActivity())
                     .getCredential(requireActivity(), request)
-                handleSignIn(result)
+                handleSignIn(result, view)
             } catch (e: GetCredentialException) {
                 showAlert("Error al identificar usuario", requireContext())
+                view.isEnabled = true
                 Log.e("AuthFragment", "Error al identificar usuario", e)
             }
         }
     }
 
-    private fun handleSignIn(result: androidx.credentials.GetCredentialResponse) {
+    private fun handleSignIn(result: androidx.credentials.GetCredentialResponse, view: View) {
         when (val credential = result.credential) {
             is CustomCredential -> {
                 if (credential.type == GoogleIdTokenCredential.TYPE_GOOGLE_ID_TOKEN_CREDENTIAL) {
@@ -81,10 +94,15 @@ class AuthFragment : Fragment() {
                         auth.signInWithCredential(firebaseCredential).addOnCompleteListener {
                             if (it.isSuccessful)
                                 findNavController().navigate(R.id.action_authFragment_to_monthlyFoodOctagonsReportFragment)
-                            else
+                            else {
                                 showAlert("Error al autenticar usuario", requireContext())
+                                view.isEnabled = true
+                            }
+                        }.addOnFailureListener {
+                            view.isEnabled = true
                         }
                     } catch (e: GoogleIdTokenParsingException) {
+                        view.isEnabled = true
                         showAlert("Error al autenticar usuario", requireContext())
                         Log.e(
                             "AuthFragment",
@@ -93,9 +111,16 @@ class AuthFragment : Fragment() {
                         )
                     }
                 } else {
+                    view.isEnabled = true
                     showAlert("Tipo inesperado de credencial", requireContext())
                     Log.e("AuthFragment", "Tipo inesperado de credencial")
                 }
+            }
+
+            else -> {
+                view.isEnabled = true
+                showAlert("Tipo inesperado de credencial", requireContext())
+                Log.e("AuthFragment", "Tipo inesperado de credencial")
             }
         }
     }

@@ -57,10 +57,18 @@
         android:id="@+id/monthlyDetailedNutritionalFoodReportFragment"
         android:name="com.mbm.alimentosprocesados.reports.MonthlyDetailedNutritionalFoodReportFragment"
         android:label="@string/report_tittle_2"
-        tools:layout="@layout/fragment_monthly_detailed_nutritional_food_report" />
+        tools:layout="@layout/fragment_monthly_detailed_nutritional_food_report" >
+        <action
+            android:id="@+id/action_monthlyDetailedNutritionalFoodReportFragment_to_authFragment"
+            app:destination="@id/authFragment" />
+    </fragment>
     <fragment
         android:id="@+id/monthlyReportForDiscardedProcessedFoodPackagesWithOctagonsByBrandFragment"
         android:name="com.mbm.alimentosprocesados.reports.MonthlyReportForDiscardedProcessedFoodPackagesWithOctagonsByBrandFragment"
         android:label="@string/report_tittle_3"
-        tools:layout="@layout/fragment_monthly_report_for_discarded_processed_food_packages_with_octagons_by_brand" />
+        tools:layout="@layout/fragment_monthly_report_for_discarded_processed_food_packages_with_octagons_by_brand" >
+        <action
+            android:id="@+id/action_monthlyReportForDiscardedProcessedFoodPackagesWithOctagonsByBrandFragment_to_authFragment"
+            app:destination="@id/authFragment" />
+    </fragment>
 </navigation>
