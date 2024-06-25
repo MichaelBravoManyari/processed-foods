@@ -24,6 +24,8 @@ class ExposedDropdownMenu : MaterialAutoCompleteTextView {
 
     init {
         inputType = InputType.TYPE_NULL
+        showSoftInputOnFocus = false
+        focusable = NOT_FOCUSABLE
     }
 
     override fun onSaveInstanceState(): Parcelable? {

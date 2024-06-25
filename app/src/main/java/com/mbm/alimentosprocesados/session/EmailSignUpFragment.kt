@@ -38,51 +38,60 @@ class EmailSignUpFragment : Fragment() {
             view.findNavController().navigate(R.id.action_emailSignUpFragment_to_authFragment)
         }
         binding.btnRegistrar.setOnClickListener {
-            handleSignUp()
+            if (it.isEnabled) {
+                it.isEnabled = false
+                handleSignUp(it)
+            }
         }
     }
 
-    private fun handleSignUp() {
+    private fun handleSignUp(view: View) {
         val email = binding.editTextEmail.text.toString().trim()
         val password = binding.editTextContrasena.text.toString().trim()
         val passwordRe = binding.editTextValContrasena.text.toString().trim()
-        if (isInputValid(email, password, passwordRe)) {
-            createUser(email, password)
+        if (isInputValid(email, password, passwordRe, view)) {
+            createUser(email, password, view)
         }
     }
 
-    private fun isInputValid(email: String, password: String, passwordRe: String): Boolean {
+    private fun isInputValid(email: String, password: String, passwordRe: String, view: View): Boolean {
         return when {
             email.isEmpty() -> {
                 binding.editTextLayoutEmail.error = "Ingrese su correo"
+                view.isEnabled = true
                 false
             }
             !isValidEmail(email) -> {
                 binding.editTextLayoutEmail.error = "Correo incorrecto"
+                view.isEnabled = true
                 false
             }
             password.isEmpty() -> {
                 binding.editTextLayoutContrasena.error = "Ingrese una contraseña"
+                view.isEnabled = true
                 false
             }
             !isValidPassword(password) -> {
                 binding.editTextLayoutContrasena.error = "Contraseña de baja seguridad"
+                view.isEnabled = true
                 false
             }
             password != passwordRe -> {
                 binding.editTextLayoutValContrasena.error = "Las contraseñas no coinciden"
+                view.isEnabled = true
                 false
             }
             else -> true
         }
     }
 
-    private fun createUser(email: String, password: String) {
+    private fun createUser(email: String, password: String, view: View) {
         auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener { task ->
             if (task.isSuccessful) {
                 findNavController().navigate(R.id.action_emailSignUpFragment_to_monthlyFoodOctagonsReportFragment)
             } else {
                 showAlert("Error al crear usuario, correo ya registrado", requireContext())
+                view.isEnabled = true
             }
         }
     }

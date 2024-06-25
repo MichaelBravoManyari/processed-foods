@@ -59,6 +59,9 @@ class MonthlyDetailedNutritionalFoodReportFragment : Fragment() {
         val monthsArray = resources.getStringArray(R.array.months_array)
         val actualMonth = monthsArray[LocalDate.now().month.value - 1]
         binding.spinnerMonth.setText(actualMonth, false)
+        binding.spinnerMonth.setOnClickListener {
+            hideKeyboard()
+        }
         observeUiState()
         setupSearchButton()
     }

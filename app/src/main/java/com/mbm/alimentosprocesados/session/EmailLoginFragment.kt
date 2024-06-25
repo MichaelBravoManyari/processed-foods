@@ -38,7 +38,10 @@ class EmailLoginFragment : Fragment() {
             navigateToAuthFragment(view)
         }
         binding.btnIniciarSesion.setOnClickListener {
-            handleLogin()
+            if (it.isEnabled) {
+                it.isEnabled = false
+                handleLogin(it)
+            }
         }
     }
 
@@ -46,22 +49,24 @@ class EmailLoginFragment : Fragment() {
         view.findNavController().navigate(R.id.action_emailLoginFragment_to_authFragment)
     }
 
-    private fun handleLogin() {
+    private fun handleLogin(view: View) {
         val email = binding.editTextEmail.text.toString().trim()
         val password = binding.editTextContrasena.text.toString().trim()
         if (isValidEmail(email) && password.isNotEmpty()) {
-            signInWithEmail(email, password)
+            signInWithEmail(email, password, view)
         } else {
             showValidationErrors(email, password)
+            view.isEnabled = true
         }
     }
 
-    private fun signInWithEmail(email: String, password: String) {
+    private fun signInWithEmail(email: String, password: String, view: View) {
         auth.signInWithEmailAndPassword(email, password).addOnCompleteListener { task ->
             if (task.isSuccessful) {
                 navigateToMonthlyReportFragment()
             } else {
                 showAlert("Error al identificar el usuario", requireContext())
+                view.isEnabled = true
             }
         }
     }
