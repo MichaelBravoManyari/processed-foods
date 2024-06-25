@@ -4,10 +4,10 @@
     <selectionStates>
       <SelectionState runConfigName="app">
         <option name="selectionMode" value="DROPDOWN" />
-        <DropdownSelection timestamp="2024-06-24T15:34:29.983510800Z">
+        <DropdownSelection timestamp="2024-06-25T11:45:02.608173Z">
           <Target type="DEFAULT_BOOT">
             <handle>
-              <DeviceId pluginId="PhysicalDevice" identifier="serial=R58R22KPXYX" />
+              <DeviceId pluginId="LocalEmulator" identifier="path=C:\Users\nickb\.android\avd\Huawei_Y7_2019_API_34.avd" />
             </handle>
           </Target>
         </DropdownSelection>

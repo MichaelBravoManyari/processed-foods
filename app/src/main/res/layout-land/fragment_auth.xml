@@ -50,14 +50,14 @@
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/nuevo_usuario"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:text="@string/eres_nuevo_registrate_aqu"
         android:textStyle="bold"
+        android:gravity="center"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintEnd_toEndOf="@id/btn_iniciar_google"
         app:layout_constraintStart_toEndOf="@id/img_inicio_sesion"
         app:layout_constraintTop_toBottomOf="@id/btn_iniciar_google" />
 </androidx.constraintlayout.widget.ConstraintLayout>

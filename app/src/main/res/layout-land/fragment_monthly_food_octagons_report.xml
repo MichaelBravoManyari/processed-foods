@@ -111,124 +111,141 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginStart="10dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:layout_marginEnd="10dp"
             android:visibility="invisible"
+            app:layout_constraintHorizontal_weight="2"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/txt_num_packaging"
+            app:layout_constraintEnd_toStartOf="@id/scroll_view_details"
             app:layout_constraintStart_toEndOf="@id/txt_layout_spinner_month"
             app:layout_constraintTop_toBottomOf="@id/title_report"
             tools:visibility="visible" />
 
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/txt_num_packaging"
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/scroll_view_details"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
+            android:layout_height="0dp"
+            app:layout_constraintHorizontal_weight="1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/bar_chart"
             app:layout_constraintTop_toTopOf="@id/bar_chart"
-            tools:text="Número de empaques analizados: 500" />
+            app:layout_constraintBottom_toBottomOf="parent">
 
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/color_alto_grasas_saturadas"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_marginStart="10dp"
-            android:background="@drawable/ic_circle"
-            android:backgroundTint="@color/saturatedFatsColor"
-            android:visibility="invisible"
-            app:layout_constraintBottom_toBottomOf="@id/txt_alto_grasas_saturadas"
-            app:layout_constraintStart_toEndOf="@id/bar_chart"
-            app:layout_constraintTop_toTopOf="@id/txt_alto_grasas_saturadas"
-            tools:visibility="visible" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/txt_alto_grasas_saturadas"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
-            android:visibility="invisible"
-            app:layout_constraintStart_toEndOf="@id/color_alto_grasas_saturadas"
-            app:layout_constraintTop_toBottomOf="@id/txt_num_packaging"
-            tools:text="Alto en grasas saturadas: 10%"
-            tools:visibility="visible" />
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/txt_num_packaging"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="Número de empaques analizados: 500" />
 
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/color_alto_grasas_trans"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/ic_circle"
-            android:backgroundTint="@color/transFatsColor"
-            android:visibility="invisible"
-            app:layout_constraintStart_toEndOf="@id/bar_chart"
-            app:layout_constraintTop_toBottomOf="@id/txt_alto_grasas_saturadas"
-            tools:visibility="visible" />
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/color_alto_grasas_saturadas"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:background="@drawable/ic_circle"
+                    android:backgroundTint="@color/saturatedFatsColor"
+                    android:visibility="invisible"
+                    app:layout_constraintBottom_toBottomOf="@id/txt_alto_grasas_saturadas"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/txt_alto_grasas_saturadas"
+                    tools:visibility="visible" />
 
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/txt_contiene_grasas_trans"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            android:visibility="invisible"
-            app:layout_constraintStart_toEndOf="@id/color_alto_grasas_trans"
-            app:layout_constraintTop_toBottomOf="@id/txt_alto_grasas_saturadas"
-            tools:text="Contiene grasas trans: 15%"
-            tools:visibility="visible" />
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/txt_alto_grasas_saturadas"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:visibility="invisible"
+                    app:layout_constraintEnd_toEndOf="@id/txt_num_packaging"
+                    app:layout_constraintStart_toEndOf="@id/color_alto_grasas_saturadas"
+                    app:layout_constraintTop_toBottomOf="@id/txt_num_packaging"
+                    tools:text="Alto en grasas saturadas: 10%"
+                    tools:visibility="visible" />
 
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/color_alto_azucar"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/ic_circle"
-            android:backgroundTint="@color/sugarColor"
-            android:visibility="invisible"
-            app:layout_constraintStart_toEndOf="@id/bar_chart"
-            app:layout_constraintTop_toBottomOf="@id/txt_contiene_grasas_trans"
-            tools:visibility="visible" />
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/color_alto_grasas_trans"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/ic_circle"
+                    android:backgroundTint="@color/transFatsColor"
+                    android:visibility="invisible"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/txt_alto_grasas_saturadas"
+                    tools:visibility="visible" />
 
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/txt_alto_azucar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
-            android:visibility="invisible"
-            app:layout_constraintStart_toEndOf="@id/color_alto_azucar"
-            app:layout_constraintTop_toBottomOf="@id/txt_contiene_grasas_trans"
-            tools:text="Alto en azúcar: 20%"
-            tools:visibility="visible" />
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/txt_contiene_grasas_trans"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:visibility="invisible"
+                    app:layout_constraintEnd_toEndOf="@id/txt_num_packaging"
+                    app:layout_constraintStart_toEndOf="@id/color_alto_grasas_trans"
+                    app:layout_constraintTop_toBottomOf="@id/txt_alto_grasas_saturadas"
+                    tools:text="Contiene grasas trans: 15%"
+                    tools:visibility="visible" />
 
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/color_alto_sodio"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/ic_circle"
-            android:backgroundTint="@color/sodiumColor"
-            android:visibility="invisible"
-            app:layout_constraintStart_toEndOf="@id/bar_chart"
-            app:layout_constraintTop_toBottomOf="@id/txt_alto_azucar"
-            tools:visibility="visible" />
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/color_alto_azucar"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/ic_circle"
+                    android:backgroundTint="@color/sugarColor"
+                    android:visibility="invisible"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/txt_contiene_grasas_trans"
+                    tools:visibility="visible" />
 
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/txt_alto_sodio"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
-            android:visibility="invisible"
-            app:layout_constraintStart_toEndOf="@id/color_alto_sodio"
-            app:layout_constraintTop_toBottomOf="@id/txt_alto_azucar"
-            tools:text="Alto en sodio: 30%"
-            tools:visibility="visible" />
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/txt_alto_azucar"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:visibility="invisible"
+                    app:layout_constraintEnd_toEndOf="@id/txt_num_packaging"
+                    app:layout_constraintStart_toEndOf="@id/color_alto_azucar"
+                    app:layout_constraintTop_toBottomOf="@id/txt_contiene_grasas_trans"
+                    tools:text="Alto en azúcar: 20%"
+                    tools:visibility="visible" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/color_alto_sodio"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:background="@drawable/ic_circle"
+                    android:backgroundTint="@color/sodiumColor"
+                    android:visibility="invisible"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/txt_alto_sodio"
+                    tools:visibility="visible" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/txt_alto_sodio"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:visibility="invisible"
+                    app:layout_constraintEnd_toEndOf="@id/txt_num_packaging"
+                    app:layout_constraintStart_toEndOf="@id/color_alto_sodio"
+                    app:layout_constraintTop_toBottomOf="@id/txt_alto_azucar"
+                    tools:text="Alto en sodio: 30%"
+                    tools:visibility="visible" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
