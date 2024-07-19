@@ -16,27 +16,35 @@
 ### Screenshots
 
 ![Monthly Discarded Packages Report](screenshots/monthly_discarded_packages_report.jpg)
+
 *Monthly Report of Discarded Packages with Octagons*
 
 ![Nutritional Information Report](screenshots/nutritional_information_report.jpg)
+
 *Report of Nutritional Information of Discarded Packages*
 
 ![Brand-Specific Report](screenshots/brand_specific_report.jpg)
+
 *Brand-Specific Report of Discarded Packages*
 
 ![Smart Trash Can Control](screenshots/smart_trash_can_control.jpg)
+
 *Options to Control the Smart Trash Can*
 
 ![Login Options](screenshots/login_options.jpg)
+
 *Login Options Screen*
 
 ![Email Login](screenshots/email_login.jpg)
+
 *Login with Email*
 
 ![Google Login](screenshots/google_login.jpg)
+
 *Login with Google*
 
 ![Email Registration](screenshots/email_registration.jpg)
+
 *Register with Email*
 
 ## Architecture
