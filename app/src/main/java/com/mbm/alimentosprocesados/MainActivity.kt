@@ -263,7 +263,7 @@ class MainActivity : AppCompatActivity() {
             .show()
     }
 
-    private fun handleDestinationChanges() {
+        private fun handleDestinationChanges() {
         navController.addOnDestinationChangedListener { _, destination, _ ->
             when (destination.id) {
                 R.id.monthlyFoodOctagonsReportFragment,
