@@ -50,6 +50,7 @@
 ## Architecture
 
 The app follows the official [Android architecture guidelines](https://developer.android.com/topic/architecture), utilizing the following components:
+- **Model-View-ViewModel (MVVM)**: Ensures a clear separation of the UI logic from the business logic, making the app more modular and easier to test.
 - **ViewModel**: Manages UI-related data in a lifecycle-conscious way.
 - **LiveData**: Provides observable data holder classes.
 - **Kotlin Flows**: For asynchronous data streams, ensuring efficient and reactive handling of data updates.
