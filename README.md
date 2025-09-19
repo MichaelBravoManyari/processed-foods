@@ -1,64 +1,75 @@
-# Processed Foods
+# 📱 Processed Foods
 
-## About the App
+## 📌 Acerca de la App
 
-**Processed Foods** is an Android application designed to monitor and control a smart trash can specifically for processed food packaging. The app provides detailed reports on discarded processed food packages with octagons and allows users to control the smart trash can (turn it on, off, and reset it). Additionally, the app supports user registration and login, leveraging various Firebase services.
+**Processed Foods** es una aplicación Android diseñada para **monitorear y controlar un basurero inteligente** enfocado en empaques de alimentos procesados.  
 
-## Features
+La app genera **reportes detallados** sobre los empaques descartados que contienen octágonos y permite al usuario controlar el basurero inteligente (encender, apagar y reiniciar).  
 
-- **Reports of Discarded Packages**: View reports of processed food packaging with octagons discarded in the month.
-- **Nutritional Information Reports**: Get detailed nutritional information (sugar, trans fats, saturated fats, sodium in grams) of the discarded processed food packaging with octagons.
-- **Brand-Specific Reports**: View reports of discarded processed food packaging with octagons sorted by brand.
-- **Smart Trash Can Control**: Turn the smart trash can on or off and reset it.
-- **User Authentication**: Login with email or Google account.
-- **User Registration**: Register new users via email.
+Además, incluye **registro e inicio de sesión de usuarios**, integrando varios servicios de **Firebase**.  
 
-### Screenshots
+---
 
-![Monthly Discarded Packages Report](screenshots/monthly_discarded_packages_report.jpg)
+## ✨ Funcionalidades
 
-*Monthly Report of Discarded Packages with Octagons*
+- 📊 **Reportes de Empaques Descartados**: Visualiza reportes de empaques de alimentos procesados con octágonos descartados en el mes.  
+- 🍽️ **Reportes de Información Nutricional**: Consulta información detallada (azúcar, grasas trans, grasas saturadas, sodio en gramos) de los empaques descartados.  
+- 🏷️ **Reportes por Marca**: Visualiza los empaques procesados descartados, organizados por marca.  
+- 🗑️ **Control del Basurero Inteligente**: Enciende, apaga o reinicia el basurero desde la app.  
+- 🔐 **Autenticación de Usuarios**: Inicia sesión con correo electrónico o cuenta de Google.  
+- 📝 **Registro de Usuarios**: Registra nuevos usuarios con correo electrónico.  
 
-![Nutritional Information Report](screenshots/nutritional_information_report.jpg)
+---
 
-*Report of Nutritional Information of Discarded Packages*
+## 🏗️ Arquitectura
 
-![Brand-Specific Report](screenshots/brand_specific_report.jpg)
+La app sigue las [guías oficiales de arquitectura de Android](https://developer.android.com/topic/architecture), utilizando los siguientes componentes:  
 
-*Brand-Specific Report of Discarded Packages*
+- 🧩 **MVVM (Model-View-ViewModel)** → Separación clara entre lógica de negocio y lógica de interfaz.  
+- 🎛️ **ViewModel** → Manejo de datos relacionados con la UI de forma segura con el ciclo de vida.  
+- 📡 **LiveData** → Clases observables que actualizan la UI en tiempo real.  
+- 🔄 **Kotlin Flows** → Manejo eficiente y reactivo de flujos de datos asincrónicos.  
+- 📚 **Repository Pattern** → Gestión de operaciones de datos con una API limpia hacia el ViewModel.  
+- ☁️ **Servicios Firebase** → Autenticación, Firestore Database y Storage.  
 
-![Smart Trash Can Control](screenshots/smart_trash_can_control.jpg)
+---
 
-*Options to Control the Smart Trash Can*
+## 🎨 Interfaz de Usuario (UI)
 
-![Login Options](screenshots/login_options.jpg)
+La interfaz de **Processed Foods** está construida con **Material 3** y vistas personalizadas, garantizando un diseño **moderno, responsivo y amigable**.  
 
-*Login Options Screen*
+Elementos principales:  
+- 🎨 **Componentes Material 3** → Para una experiencia visual consistente y adaptable.  
+- 🖌️ **Vistas Personalizadas** → Diseñadas para ajustarse a las necesidades específicas de la app.  
 
-![Email Login](screenshots/email_login.jpg)
+---
 
-*Login with Email*
+## 🖼️ Capturas de Pantalla
 
-![Google Login](screenshots/google_login.jpg)
+![Reporte Mensual de Empaques](screenshots/monthly_discarded_packages_report.jpg)  
+*Reporte mensual de empaques con octágonos descartados*  
 
-*Login with Google*
+![Reporte Nutricional](screenshots/nutritional_information_report.jpg)  
+*Reporte nutricional de empaques descartados*  
 
-![Email Registration](screenshots/email_registration.jpg)
+![Reporte por Marca](screenshots/brand_specific_report.jpg)  
+*Reporte de empaques descartados por marca*  
 
-*Register with Email*
+![Control del Basurero Inteligente](screenshots/smart_trash_can_control.jpg)  
+*Opciones de control del basurero inteligente*  
 
-## Architecture
+![Opciones de Inicio de Sesión](screenshots/login_options.jpg)  
+*Pantalla de opciones de inicio de sesión*  
 
-The app follows the official [Android architecture guidelines](https://developer.android.com/topic/architecture), utilizing the following components:
-- **Model-View-ViewModel (MVVM)**: Ensures a clear separation of the UI logic from the business logic, making the app more modular and easier to test.
-- **ViewModel**: Manages UI-related data in a lifecycle-conscious way.
-- **LiveData**: Provides observable data holder classes.
-- **Kotlin Flows**: For asynchronous data streams, ensuring efficient and reactive handling of data updates.
-- **Repository Pattern**: Manages data operations and provides a clean API to the ViewModel.
-- **Firebase Services**: Authentication, Firestore Database, and Storage.
+![Inicio de Sesión con Correo](screenshots/email_login.jpg)  
+*Ingreso con correo electrónico*  
 
-## UI
+![Inicio de Sesión con Google](screenshots/google_login.jpg)  
+*Ingreso con cuenta de Google*  
 
-The user interface of Processed Foods is built using Material 3 components and custom views, ensuring a modern, responsive, and user-friendly design. Key UI elements include:
-- **Material 3 Components**: For a cohesive and responsive design.
-- **Custom Views**: Tailored to the specific needs of the app for a unique user experience.
+![Registro con Correo](screenshots/email_registration.jpg)  
+*Registro de usuario con correo electrónico*  
+
+---
+
+📌 Proyecto desarrollado en **Kotlin** bajo buenas prácticas de arquitectura y diseño moderno de interfaces.  
