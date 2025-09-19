@@ -46,30 +46,31 @@ Elementos principales:
 
 ## 🖼️ Capturas de Pantalla
 
-![Reporte Mensual de Empaques](screenshots/monthly_discarded_packages_report.jpg)  
-*Reporte mensual de empaques con octágonos descartados*  
+<img src="screenshots/monthly_discarded_packages_report.jpg" width="400" alt="Reporte Mensual de Empaques">
+*Reporte mensual de empaques con octágonos descartados*
 
-![Reporte Nutricional](screenshots/nutritional_information_report.jpg)  
-*Reporte nutricional de empaques descartados*  
+<img src="screenshots/nutritional_information_report.jpg" width="400" alt="Reporte Nutricional">
+*Reporte nutricional de empaques descartados*
 
-![Reporte por Marca](screenshots/brand_specific_report.jpg)  
-*Reporte de empaques descartados por marca*  
+<img src="screenshots/brand_specific_report.jpg" width="400" alt="Reporte por Marca">
+*Reporte de empaques descartados por marca*
 
-![Control del Basurero Inteligente](screenshots/smart_trash_can_control.jpg)  
-*Opciones de control del basurero inteligente*  
+<img src="screenshots/smart_trash_can_control.jpg" width="400" alt="Control del Basurero Inteligente">
+*Opciones de control del basurero inteligente*
 
-![Opciones de Inicio de Sesión](screenshots/login_options.jpg)  
-*Pantalla de opciones de inicio de sesión*  
+<img src="screenshots/login_options.jpg" width="400" alt="Opciones de Inicio de Sesión">
+*Pantalla de opciones de inicio de sesión*
 
-![Inicio de Sesión con Correo](screenshots/email_login.jpg)  
-*Ingreso con correo electrónico*  
+<img src="screenshots/email_login.jpg" width="400" alt="Inicio de Sesión con Correo">
+*Ingreso con correo electrónico*
 
-![Inicio de Sesión con Google](screenshots/google_login.jpg)  
-*Ingreso con cuenta de Google*  
+<img src="screenshots/google_login.jpg" width="400" alt="Inicio de Sesión con Google">
+*Ingreso con cuenta de Google*
 
-![Registro con Correo](screenshots/email_registration.jpg)  
-*Registro de usuario con correo electrónico*  
+<img src="screenshots/email_registration.jpg" width="400" alt="Registro con Correo">
+*Registro de usuario con correo electrónico*
 
 ---
 
 📌 Proyecto desarrollado en **Kotlin** bajo buenas prácticas de arquitectura y diseño moderno de interfaces.  
+
